@@ -115,4 +115,91 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     updateROI();
 });
-    </script>
+
+// ========== INTEREST MODAL FUNCTIONS ==========
+
+function openInterestModal(planName, planPrice) {
+    const modal = document.getElementById('interestModal');
+    const modalPlanName = document.getElementById('modalPlanName');
+    const selectedPlanInput = document.getElementById('selectedPlan');
+    
+    // Set plan name in modal title and hidden input
+    modalPlanName.textContent = planName;
+    selectedPlanInput.value = `${planName} (${planPrice})`;
+    
+    // Show modal
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+}
+
+function closeInterestModal() {
+    const modal = document.getElementById('interestModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = ''; // Restore scrolling
+    
+    // Reset form
+    document.getElementById('interestForm').reset();
+}
+
+function handleInterestSubmit(event) {
+    event.preventDefault();
+    
+    // Get form data
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData.entries());
+    
+    // Log data (in production, send to your backend)
+    console.log('Lead submitted:', data);
+    
+    // TODO: Send data to your backend/CRM
+    // Example:
+    // fetch('/api/leads', {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify(data)
+    // });
+    
+    // Close interest modal
+    closeInterestModal();
+    
+    // Show success modal
+    showSuccessModal(data.selectedPlan, data.email);
+}
+
+function showSuccessModal(planName, email) {
+    const successModal = document.getElementById('successModal');
+    const successPlanName = document.getElementById('successPlanName');
+    const successEmail = document.getElementById('successEmail');
+    
+    successPlanName.textContent = planName;
+    successEmail.textContent = email;
+    
+    successModal.classList.add('active');
+}
+
+function closeSuccessModal() {
+    const modal = document.getElementById('successModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+    const interestModal = document.getElementById('interestModal');
+    const successModal = document.getElementById('successModal');
+    
+    if (event.target === interestModal) {
+        closeInterestModal();
+    }
+    if (event.target === successModal) {
+        closeSuccessModal();
+    }
+}
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeInterestModal();
+        closeSuccessModal();
+    }
+});

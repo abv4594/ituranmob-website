@@ -35,6 +35,12 @@
 
     <!-- HERO SECTION -->
     <section class="hero">
+        <!-- Video Background -->
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="hero-video.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        
         <div class="hero-content">
             <h1>Stop Managing Keys. <span class="hero-highlight">Start Managing Revenue.</span></h1>
             <p>The keyless rental platform used by 1,000+ vehicles across 7 countries. Automate everything from booking to return.</p>
@@ -328,7 +334,7 @@
                     <div class="pricing-note" style="background: #e8f5f7; border-color: #00A8B8;">
                         <strong>Best For:</strong> Basic fleet tracking
                     </div>
-                    <button class="pricing-cta" onclick="scrollToSection('demo')">Get Started</button>
+                    <button class="pricing-cta" onclick="openInterestModal('IturanMob Light', '$5.99/month')">I'm Interested</button>
                 </div>
                 
                 <!-- Gold -->
@@ -353,7 +359,7 @@
                     <div class="pricing-note" style="background: #e8f5f7; border-color: #00A8B8;">
                         <strong>Best For:</strong> Contactless rentals
                     </div>
-                    <button class="pricing-cta" onclick="scrollToSection('demo')">Schedule Demo</button>
+                    <button class="pricing-cta" onclick="openInterestModal('IturanMob Gold', '$8.99/month')">I'm Interested</button>
                 </div>
                 
                 <!-- Full -->
@@ -380,7 +386,7 @@
                     <div class="pricing-note" style="background: #e8f5f7; border-color: #00A8B8;">
                         <strong>Best For:</strong> Automated rental platform
                     </div>
-                    <button class="pricing-cta" onclick="scrollToSection('demo')">Schedule Demo</button>
+                    <button class="pricing-cta" onclick="openInterestModal('IturanMob Full', '$24.99/month')">I'm Interested</button>
                 </div>
             </div>
             
@@ -760,6 +766,133 @@
             </div>
         </div>
     </footer>
+
+    <!-- INTEREST MODAL -->
+    <div id="interestModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeInterestModal()">&times;</span>
+            <h2>Get Started with <span id="modalPlanName">IturanMob</span></h2>
+            <p class="modal-subtitle">Fill out the form below and our team will contact you within 24 hours.</p>
+            
+            <form id="interestForm" onsubmit="handleInterestSubmit(event)">
+                <input type="hidden" id="selectedPlan" name="selectedPlan">
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name <span class="required">*</span></label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name <span class="required">*</span></label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone <span class="required">*</span></label>
+                        <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="company">Company Name <span class="required">*</span></label>
+                    <input type="text" id="company" name="company" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fleetSize">Fleet Size <span class="required">*</span></label>
+                        <select id="fleetSize" name="fleetSize" required>
+                            <option value="">Select fleet size...</option>
+                            <option value="1-10">1-10 vehicles</option>
+                            <option value="11-30">11-30 vehicles</option>
+                            <option value="31-50">31-50 vehicles</option>
+                            <option value="51-100">51-100 vehicles</option>
+                            <option value="100+">100+ vehicles</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="currentSolution">Current Solution <span class="required">*</span></label>
+                        <select id="currentSolution" name="currentSolution" required>
+                            <option value="">Select current solution...</option>
+                            <option value="manual">Manual/Physical Keys</option>
+                            <option value="gps">GPS Tracker Only</option>
+                            <option value="competitor">Competitor Solution</option>
+                            <option value="none">No Solution Yet</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="timeline">Implementation Timeline <span class="required">*</span></label>
+                        <select id="timeline" name="timeline" required>
+                            <option value="">Select timeline...</option>
+                            <option value="asap">ASAP (within 1 month)</option>
+                            <option value="1-3">1-3 months</option>
+                            <option value="3-6">3-6 months</option>
+                            <option value="6+">6+ months</option>
+                            <option value="exploring">Just exploring</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="useCase">Primary Use Case <span class="required">*</span></label>
+                        <select id="useCase" name="useCase" required>
+                            <option value="">Select use case...</option>
+                            <option value="rental">Rental Company</option>
+                            <option value="corporate">Corporate Fleet</option>
+                            <option value="rideshare">Ride-share/Gig Economy</option>
+                            <option value="oem">OEM/Dealer Test Drives</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="comments">Comments or Questions (Optional)</label>
+                    <textarea id="comments" name="comments" rows="3" placeholder="Tell us more about your needs..."></textarea>
+                </div>
+                
+                <div class="form-footer">
+                    <p class="form-privacy">
+                        🔒 We respect your privacy. Your information is secure and will only be used to contact you about IturanMob services.
+                    </p>
+                    <button type="submit" class="btn-primary btn-large">Submit Request</button>
+                    <p class="form-note">
+                        ✓ No credit card required<br>
+                        ✓ Our team will contact you within 24 hours
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- SUCCESS MODAL -->
+    <div id="successModal" class="modal">
+        <div class="modal-content modal-success">
+            <span class="modal-close" onclick="closeSuccessModal()">&times;</span>
+            <div class="success-icon">✓</div>
+            <h2>Thank You!</h2>
+            <p class="success-message">
+                We've received your inquiry for <strong id="successPlanName">IturanMob</strong>.
+            </p>
+            <p>Our team will contact you within 24 hours to discuss:</p>
+            <ul class="success-list">
+                <li>Custom pricing for your fleet</li>
+                <li>Implementation timeline</li>
+                <li>Technical requirements</li>
+            </ul>
+            <p class="success-email">Check your email (<strong id="successEmail"></strong>) for a confirmation.</p>
+            <p class="success-contact">Questions? Call us: <strong>+1-XXX-XXX-XXXX</strong></p>
+            <button class="btn-primary" onclick="closeSuccessModal()">Close</button>
+        </div>
+    </div>
 
     <!-- External JavaScript -->
     <script src="script.js"></script>
