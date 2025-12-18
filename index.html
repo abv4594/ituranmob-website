@@ -21,7 +21,7 @@
             <ul class="nav-menu">
                 <li><a href="#solutions">Solutions</a></li>
                 <li><a href="#how-it-works">How it Works</a></li>
-                <li><a href="#roi">ROI</a></li>
+                <li><a href="#roi">Results</a></li>
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#contact" class="btn btn-primary" onclick="openModal('General Inquiry')">Request Demo</a></li>
             </ul>
@@ -30,21 +30,29 @@
     </nav>
 
     <section class="hero">
-        <video autoplay muted loop playsinline class="hero-bg-video">
-            <source src="hero-video.mp4" type="video/mp4">
-        </video>
-        <div class="hero-overlay"></div>
+            <video autoplay muted loop playsinline class="hero-bg-video">
+                <source src="hero-video.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
 
-        <div class="container">
-            <div class="hero-content text-center">
-                <h1>The Professional Mobility Platform</h1>
-                <p>Hardware, Software, and Security in one unified solution. Trusted by rental companies, gig-economy fleets, and OEMs worldwide.</p>
-                <div class="hero-btns">
-                    <button class="btn btn-primary" onclick="scrollToSection('how-it-works')">Watch Platform Demo</button>
-                    <button class="btn btn-secondary" style="border-color: #fff; color: #fff;" onclick="scrollToSection('pricing')">View Pricing</button>
+            <div class="container">
+                <div class="hero-content text-center">
+                    <h1>
+                        Stop managing keys.<br>
+                        Start managing <span class="text-teal">revenue.</span>
+                    </h1>
+                    
+                    <p>
+                        The unified platform for rental and gig-economy fleets.<br>
+                        Combining <strong>Hardware, Software, and Security</strong> in one solution.
+                    </p>
+                    
+                    <div class="hero-btns">
+                        <button class="btn btn-primary" onclick="scrollToSection('how-it-works')">Watch Platform Demo</button>
+                        <button class="btn btn-secondary" style="border-color: #fff; color: #fff;" onclick="scrollToSection('pricing')">View Pricing</button>
+                    </div>
                 </div>
             </div>
-        </div>
     </section>
 
     <div class="stats-bar">
@@ -192,104 +200,50 @@
         </div>
     </section>
 
-    <section id="roi" class="roi-section">
+    <section id="roi" class="impact-section">
         <div class="container">
             <div class="section-header">
-                <h2>Calculate Your Potential Savings</h2>
-                <p>See how much you can save based on your specific business model.</p>
+                <h2>Proven Impact on Your Bottom Line</h2>
+                <p>Don't just track your fleet—optimize it. See the metrics that matter.</p>
             </div>
             
-            <div class="roi-wrapper">
-                <div class="roi-inputs">
-                    <div class="input-group" style="background: #eef2f6; padding: 1rem; border-radius: 8px; border: 1px solid #dce1e7; margin-bottom: 2rem;">
-                        <label style="color: var(--navy-brand); font-size: 1rem;">Select Your Business Model</label>
-                        <select id="business-type" onchange="toggleSegmentFields()" style="width: 100%; padding: 0.8rem; border-radius: 6px; border: 1px solid #ccc; font-weight: 600; color: var(--navy-brand);">
-                            <option value="rental">Daily Rental Company</option>
-                            <option value="gig">Gig-Economy / Subscription</option>
-                            <option value="corporate">Corporate Fleet</option>
-                        </select>
-                    </div>
-
-                    <h3>Fleet Assumptions</h3>
-                    
-                    <div class="input-group">
-                        <label>Fleet Size</label>
-                        <input type="number" id="fleet-size" value="50">
-                    </div>
-                    <div class="input-group">
-                        <label>Avg. Vehicle Value ($)</label>
-                        <input type="number" id="vehicle-value" value="25000">
-                    </div>
-
-                    <div class="input-group">
-                        <label id="staff-label">Counter Time Saved (Mins/Rental)</label>
-                        <div style="font-size: 0.8rem; color: #666; margin-bottom: 0.5rem;" id="staff-hint">
-                            Time saved on physical handover & paperwork.
-                        </div>
-                        <input type="number" id="staff-metric">
-                    </div>
-
-                    <div class="input-group">
-                        <label id="bonus-label">Utilization Increase (%)</label>
-                        <div style="font-size: 0.8rem; color: #666; margin-bottom: 0.5rem;" id="bonus-hint">
-                            Additional rental days gained via 24/7 access.
-                        </div>
-                        <input type="number" id="bonus-metric">
-                    </div>
-                    
-                    <button class="btn-text-toggle" onclick="toggleAssumptions()">View Advanced Assumptions ▾</button>
-                    <div id="roi-assumptions" class="roi-hidden-inputs">
-                        <div class="input-group">
-                            <label>Hourly Staff Cost ($)</label>
-                            <input type="number" id="staff-rate" value="20">
-                        </div>
-                        <div class="input-group">
-                            <label>Avg. Monthly Revenue per Car ($)</label>
-                            <input type="number" id="monthly-revenue" value="1200">
-                        </div>
-                        <div class="input-group">
-                            <label>Annual Theft Rate (%)</label>
-                            <input type="number" id="theft-rate" value="1">
-                        </div>
-                    </div>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-icon">🛡️</div>
+                    <div class="impact-number">4x</div>
+                    <div class="impact-label">Higher Recovery Rate</div>
+                    <p class="impact-desc">Compared to standard industry average. Our covert, hardwired technology recovers vehicles others can't.</p>
                 </div>
 
-                <div class="roi-results">
-                    <h3>Estimated Annual Benefit</h3>
-                    
-                    <div class="roi-row">
-                        <span>🛡️ Asset Protection</span>
-                        <strong class="text-green" id="res-asset">$0</strong>
-                    </div>
-                    <div class="roi-row">
-                        <span id="res-label-staff">⚡ Staff Efficiency</span>
-                        <strong class="text-green" id="res-staff">$0</strong>
-                    </div>
-                    <div class="roi-row">
-                        <span id="res-label-bonus">📈 Utilization Boost</span>
-                        <strong class="text-green" id="res-bonus">$0</strong>
-                    </div>
-                    
-                    <hr style="border-color: rgba(0,0,0,0.1); margin: 1.5rem 0;">
-                    
-                    <div class="roi-total">
-                        <span>Total Annual Value</span>
-                        <div class="roi-big-number" id="res-total">$0</div>
-                    </div>
-                    
-                    <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(93, 191, 189, 0.1); border: 1px solid var(--teal-brand); border-radius: 8px; text-align: center;">
-                        <h4 style="color: var(--navy-brand); font-size: 1.1rem; margin-bottom: 0.5rem;">Need a detailed breakdown?</h4>
-                        <p style="font-size: 0.9rem; color: var(--gray-medium); margin-bottom: 1.2rem; line-height: 1.4;">
-                            Receive a PDF explanation of these formulas and a custom strategy for your fleet.
-                        </p>
-                        <button class="btn btn-primary" style="width: 100%;" onclick="openModal('ROI PDF Request')">
-                            Get the Full Report
-                        </button>
-                    </div>
+                <div class="impact-card">
+                    <div class="impact-icon">💰</div>
+                    <div class="impact-number">90%</div>
+                    <div class="impact-label">Decrease in Bad Debt</div>
+                    <p class="impact-desc">Remote immobilization drastically reduces non-payment risk for subscription and gig-economy models.</p>
+                </div>
 
-                    <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 1rem; text-align: center;">
-                        *Estimates based on typical IturanMob performance benchmarks.
-                    </p>
+                <div class="impact-card">
+                    <div class="impact-icon">⚡</div>
+                    <div class="impact-number">30%</div>
+                    <div class="impact-label">Operational Savings</div>
+                    <p class="impact-desc">Switching to contactless handovers reduces overhead costs and eliminates the need for a physical counter.</p>
+                </div>
+
+                <div class="impact-card">
+                    <div class="impact-icon">📈</div>
+                    <div class="impact-number">20%</div>
+                    <div class="impact-label">Increase in Utilization</div>
+                    <p class="impact-desc">Automated dispatch and after-hours availability means your assets generate revenue more often.</p>
+                </div>
+            </div>
+
+            <div class="impact-cta-box">
+                <div class="cta-content">
+                    <h3>Interested in having a custom ROI built for you?</h3>
+                    <p>Every fleet is unique. Let's schedule a session to plug in your specific numbers—fleet size, operational costs, and default rates—to calculate your exact potential savings.</p>
+                </div>
+                <div class="cta-action">
+                    <button class="btn btn-primary btn-lg" onclick="openModal('Custom ROI Consultation')">Build My ROI Strategy</button>
                 </div>
             </div>
         </div>
@@ -304,9 +258,8 @@
             
             <div class="pricing-grid">
                 <div class="price-card border-green">
-                    <div class="install-badge">✅ Self-Install Ready</div>
-                    <div class="segment-badge">For Fleet Security</div>
-                    <div class="plan-name">Essential</div>
+                    <div class="install-spacer"></div> <div class="segment-badge">For Fleet Security</div>
+                    <div class="plan-name">Light</div>
                     
                     <div class="price-block">
                         <div class="price">$5.99<span>/mo</span></div>
@@ -319,13 +272,14 @@
                         <li class="included"><strong>GPS Tracking</strong> (Real-time)</li>
                         <li class="included"><strong>Remote Immobilization</strong></li>
                         <li class="included"><strong>Admin Portal</strong></li>
+                        <li class="included"><strong>Turo/Tint Approved</strong></li>
                         <li class="excluded">Keyless Lock/Unlock</li>
                         <li class="excluded">Offline Bluetooth</li>
                         <li class="excluded">Telemetry & Fuel</li>
                         <li class="excluded">White-label Customer App</li>
                         <li class="excluded">Payment Processing</li>
                     </ul>
-                    <button class="btn btn-secondary price-btn" onclick="openModal('Essential Plan')">Get Essential</button>
+                    <button class="btn btn-secondary price-btn" onclick="openModal('Light Plan')">Get Light</button>
                 </div>
 
                 <div class="price-card border-teal">
@@ -344,6 +298,7 @@
                         <li class="included"><strong>GPS Tracking</strong> (Real-time)</li>
                         <li class="included"><strong>Remote Immobilization</strong></li>
                         <li class="included"><strong>Admin Portal</strong></li>
+                        <li class="included"><strong>Turo/Tint Approved</strong></li>
                         <li class="included"><strong>Keyless Lock/Unlock</strong></li>
                         <li class="included"><strong>Offline Bluetooth</strong></li>
                         <li class="excluded">Telemetry & Fuel</li>
@@ -356,7 +311,7 @@
                 <div class="price-card border-navy">
                     <div class="install-spacer"></div>
                     <div class="segment-badge navy-badge">For Rental Companies</div>
-                    <div class="plan-name">Enterprise</div>
+                    <div class="plan-name">Full</div>
                     
                     <div class="price-block">
                         <div class="price">$24.99<span>/mo</span></div>
@@ -369,13 +324,14 @@
                         <li class="included"><strong>GPS Tracking</strong> (Real-time)</li>
                         <li class="included"><strong>Remote Immobilization</strong></li>
                         <li class="included"><strong>Admin Portal</strong></li>
+                        <li class="included"><strong>Turo/Tint Approved</strong></li>
                         <li class="included"><strong>Keyless Lock/Unlock</strong></li>
                         <li class="included"><strong>Offline Bluetooth</strong></li>
                         <li class="included"><strong>Telemetry & Fuel</strong></li>
                         <li class="included"><strong>White-label Customer App</strong></li>
                         <li class="included"><strong>Payment Processing</strong></li>
                     </ul>
-                    <button class="btn btn-secondary price-btn" onclick="openModal('Enterprise Plan')">Get Enterprise</button>
+                    <button class="btn btn-secondary price-btn" onclick="openModal('Full Plan')">Get Full</button>
                 </div>
             </div>
 
@@ -384,13 +340,13 @@
                     <div class="tint-icon">🛡️</div>
                     <div class="tint-text">
                         <h4>Are you a Turo Host?</h4>
-                        <p>All IturanMob plans (Essential, Gold, Enterprise) are fully compatible with <strong>Tint off-trip insurance</strong>. Protect your fleet 24/7, even when it's not rented.</p>
+                        <p>All IturanMob plans (Light, Gold, Full) are fully compatible with <strong>Tint off-trip insurance</strong>. Protect your fleet 24/7, even when it's not rented.</p>
                     </div>
                 </div>
             </div>
 
             <div style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: var(--gray-medium);">
-                * Installation, shipping, and taxes calculated at checkout. Professional installation recommended for Gold & Enterprise plans.
+                * Installation, shipping, and taxes not included.
             </div>
         </div>
     </section>
@@ -402,18 +358,18 @@
             </div>
             <div class="faq-grid">
                 <div class="faq-item" onclick="toggleFAQ(this)">
-                    <div class="faq-question">What's the difference between Essential, Gold, and Enterprise? <span class="faq-icon">+</span></div>
+                    <div class="faq-question">What's the difference between Light, Gold, and Full? <span class="faq-icon">+</span></div>
                     <div class="faq-answer">
-                        <p><strong>Essential:</strong> Focused on security. Includes GPS tracking, Admin Portal, and Remote Immobilization.<br>
+                        <p><strong>Light:</strong> Focused on security. Includes GPS tracking, Admin Portal, and Remote Immobilization.<br>
                         <strong>Gold:</strong> Focused on operations. Adds Keyless Lock/Unlock, offline Bluetooth, and the Manager App.<br>
-                        <strong>Enterprise:</strong> The complete platform. Adds a White-label Customer App, CRM, Payment Processing, and full Telemetry.</p>
+                        <strong>Full:</strong> The complete platform. Adds a White-label Customer App, CRM, Payment Processing, and full Telemetry.</p>
                     </div>
                 </div>
                 
                 <div class="faq-item" onclick="toggleFAQ(this)">
                     <div class="faq-question">How long does installation take? <span class="faq-icon">+</span></div>
                     <div class="faq-answer">
-                        <p>For the <strong>Essential</strong> plan, self-installation is quick and takes about 15-20 minutes. For <strong>Gold and Enterprise</strong> (which involve immobilization wiring), professional installation is required. The average installation time is approximately <strong>1 hour and 30 minutes</strong> per vehicle.</p>
+                        <p>For the <strong>Light</strong> plan, installation is simpler and typically takes less than 1 hour. For <strong>Gold and Full</strong> (which involve more connections), professional installation is required, taking approximately <strong>1 hour and 30 minutes</strong> per vehicle.</p>
                     </div>
                 </div>
 
@@ -426,7 +382,7 @@
                     <div class="faq-item" onclick="toggleFAQ(this)">
                         <div class="faq-question">Do customers need to download an app? <span class="faq-icon">+</span></div>
                         <div class="faq-answer">
-                            <p>For <strong>Enterprise</strong> clients, yes—we provide a white-label app (iOS/Android) or a web-based link. For <strong>Gold</strong>, you use the Admin App to generate access, while the end-user (driver) typically accesses the vehicle via a digital key link or bluetooth.</p>
+                            <p>For <strong>Full</strong> clients, yes—we provide a white-label app (iOS/Android) or a web-based link. For <strong>Gold</strong>, you use the Admin App to generate access, while the end-user (driver) typically accesses the vehicle via a digital key link or bluetooth.</p>
                         </div>
                     </div>
 
@@ -437,7 +393,7 @@
 
                     <div class="faq-item" onclick="toggleFAQ(this)">
                         <div class="faq-question">Can we use our own branding? <span class="faq-icon">+</span></div>
-                        <div class="faq-answer">Yes. The <strong>Enterprise</strong> plan is a fully white-label solution. The customer-facing mobile app and web booking portal will carry your logo and brand colors.</div>
+                        <div class="faq-answer">Yes. The <strong>Full</strong> plan is a fully white-label solution. The customer-facing mobile app and web booking portal will carry your logo and brand colors.</div>
                     </div>
                 </div>
             </div>
@@ -488,7 +444,7 @@
             <span class="close-modal" onclick="closeModal()">&times;</span>
             <h2 id="modalTitle">Request Demo</h2>
             <p style="margin-bottom: 1.5rem; color: var(--gray-medium);">
-                Share your contact details. Our sales expert will be in touch within 24 hours.
+                Share your contact details. Our expert will be in touch within 24 hours.
             </p>
             
             <form onsubmit="event.preventDefault(); alert('Lead Submitted! Sales will contact you.'); closeModal();">
